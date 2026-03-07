@@ -26,18 +26,42 @@ margin:0;
 /* HEADER giống hệt */
 header{
 display:flex;
-justify-content:space-between;
 align-items:center;
-padding:15px 50px;
-}
+justify-content:space-between;
 
+padding:15px 40px;
+height:70px;
+
+position:fixed;
+top:0;
+left:0;
+right:0;
+
+background:#e6ecff; /* màu menu khác nền */
+
+border-bottom:2px solid #cfd8ff; /* đường viền */
+
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+
+z-index:1000;
+
+box-sizing:border-box;
+}
 nav a{
 text-decoration:none;
 color:var(--text-dark);
 margin:0 15px;
 font-weight:500;
+padding:6px 12px;
+border-radius:8px;
+transition:0.25s;
 }
 
+.menu a:hover{
+background:#ffd86b;
+color:#000;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
 .auth-buttons button{
 padding:8px 20px;
 border-radius:20px;
@@ -122,12 +146,15 @@ top:0;
 left:0;
 width:100%;
 height:100%;
+
 background:rgba(0,0,0,0.6);
+
 display:none;
 justify-content:center;
 align-items:center;
-}
 
+z-index:1500;   /* cao hơn header */
+}
 .popup-box{
 background:white;
 padding:40px;
@@ -140,11 +167,14 @@ text-align:center;
 
 .close{
 position:absolute;
-top:30px;
-right:40px;
-font-size:25px;
+top:20px;
+right:25px;
+font-size:28px;
 cursor:pointer;
-color:white;
+
+color:#333;
+
+z-index:2000;   /* QUAN TRỌNG */
 }
 .tacgia{
     margin-top:5px;
@@ -156,6 +186,10 @@ color:white;
     color:#000;
     margin-right:8px;
 }
+.logo img{
+    height:40px;
+    width:auto;
+}
 
 .khuyetdanh{
     background:#4CAF50;
@@ -164,6 +198,40 @@ color:white;
     border-radius:5px;
     font-size:13px;
 }
+.menu a{
+text-decoration:none;
+color:#333;
+margin:0 15px;
+font-weight:600;
+padding:6px 12px;
+border-radius:8px;
+transition:0.25s;
+}
+
+.menu a:hover{
+background:#ffd86b;
+}
+body{
+font-family:'Segoe UI',sans-serif;
+background:var(--primary-bg);
+margin:0;
+padding-top:80px;
+}
+.menu{
+display:flex;
+align-items:center;
+}
+.auth-buttons{
+display:flex;
+align-items:center;
+gap:10px;
+}
+body{
+font-family:'Segoe UI',sans-serif;
+background:var(--primary-bg);
+margin:0;
+padding-top:80px;
+}
 </style>
 </head>
 
@@ -171,16 +239,16 @@ color:white;
 
 <header>
 
-<div>
-<i class="fa-solid fa-circle-user fa-2xl"></i>
+     <div class="logo">
+    <img src="logonhom1.png" alt="Logo Website">  
 </div>
 
-<nav>
-<a href="nhom6.html">Trang chủ</a>
-<a href="tacpham.html">Tác phẩm</a>
-<a href="#">Tìm kiếm</a>
-</nav>
 
+<nav class="menu">
+    <a href="index.html">Trang chủ</a>
+    <a href="tacpham.html">Tác phẩm</a>
+    
+</nav>
 <div class="auth-buttons">
 <button class="btn-login">Đăng nhập</button>
 <button class="btn-signup">Đăng ký</button>
@@ -206,81 +274,62 @@ color:white;
 </div>
 
 <!-- TÁC PHẨM 2 -->
-<div class="tacpham-card" onclick="openPopup('Tác phẩm 2')">
+<div class="tacpham-card" onclick="openPopup('Miếu Bà Chúa Xứ Núi Sam')">
 <img src="tac pham 2.jpg" class="tacpham-img">
 <div class="tacpham-content">
-<h3>Tên tác phẩm</h3>
-<p>Mô tả ngắn tác phẩm...</p>
+<h3>Miếu Bà Chúa Xứ Núi Sam</h3>
+<p>Theo truyền thuyết, tượng phật bà Chúa Xứ là một pho tượng cổ rất thiêng nằm trên đỉnh núi Sam từ rất lâu. Lịch sử về nguồn gốc pho tượng bà Chúa Xứ có nhiều giả thuyết chứa đựng nhiều điều bí ẩn còn lưu truyền đến ngày nay.</p>
 </div>
 </div>
 
 <!-- TÁC PHẨM 3 -->
-<div class="tacpham-card" onclick="openPopup('Tác phẩm 3')">
-<img src="anh3.jpg" class="tacpham-img">
+<div class="tacpham-card" onclick="openPopup('MIỀN NAM LỤC TỈNH 01')">
+<img src="vanhocnambo3.jpg" class="tacpham-img">
 <div class="tacpham-content">
-<h3>Tên tác phẩm</h3>
-<p>Mô tả ngắn tác phẩm...</p>
+<h3>MIỀN NAM LỤC TỈNH 01</h3>
+<p>MIỀN NAM VÀ VĂN HỌC DÂN GIAN ĐỊA PHƯƠNG</p>
 </div>
 </div>
 
 <!-- TÁC PHẨM 4 -->
-<div class="tacpham-card" onclick="openPopup('Tác phẩm 4')">
-<img src="anh4.jpg" class="tacpham-img">
+<div class="tacpham-card" onclick="openPopup('ÔNG HÙM XÁM VÀ MA TRÀNH')">
+<img src="vanhocnambo4.jpg" class="tacpham-img">
 <div class="tacpham-content">
-<h3>Tên tác phẩm</h3>
-<p>Mô tả ngắn tác phẩm...</p>
+<h3>ÔNG HÙM XÁM VÀ MA TRÀNH</h3>
+<p>Trời dần khuya, người nhà cũng bắt đầu ra kêu lũ trẻ ra về. Còn hàng trăm câu hỏi mà tụi nhỏ muốn biết thêm nhưng đòn roi của ba mẹ làm chúng còn hãi hơn là mấy con ma lúc này. Con tò he mang hình hài một cô gái áo trắng cưỡi hổ, được hình thành.</p>
 </div>
 </div>
 
+<div class="tacpham-card" onclick="openPopup('Cọp 3 móng')">
+<img src="vanhocnambo5.jpg" class="tacpham-img">
+<div class="tacpham-content">
+<h3>Cọp 3 móng</h3>
+<p>Chuyện “cọp ba móng” chọn thịt người làm món ăn “điểm tâm” hàng ngày của nó đã trở thành nỗi ám ảnh ghê rợn cho cán bộ, chiến sĩ và nhân dân trong căn cứ chiến khu D.</p>
 </div>
+</div>
+
+<div class="tacpham-card" onclick="openPopup('Ngôi làng cổ mộ')">
+<img src="vanhocnambo6.webp" class="tacpham-img">
+<div class="tacpham-content">
+<h3>Ngôi làng cổ mộ</h3>
+<p>Những chi tiết rùng rợn, những tình huống gay cấn, căng thẳng, sợ hãi, góc nhìn trong cuộc của người đang phải chạy trốn hay đương đầu với những thế lực huyền bí ở Ngôi làng cổ mộ sẽ lôi cuốn bạn không ngừng. Từng câu chữ của Thục Linh sẽ dẫn dắt bạn đọc như lạc vào chính xứ sở u linh trong câu chuyện, trải nghiệm cảm giác ghê rợn một cách chân thực nhất như chính các nhân vật.</p>
+</div>
+</div>
+
+
+</div>
+
 
 <!-- POPUP -->
 
 <div class="popup" id="popup">
 
 <div class="close" onclick="closePopup()">✖</div>
-
 <div class="popup-box">
 
 <h2 id="popup-title"></h2>
-<p>
-<strong>thánh tông di thảo là gì?</strong><br>
-Thánh Tông di thảo (chữ Hán: 聖宗遺草; tạm dịch là "Bản thảo để lại của [Lê] Thánh Tông") là một tác phẩm viết bằng chữ Hán, nhưng lấy đề tài ở Việt Nam, tương truyền là của vua Lê Thánh Tông, trị vì từ năm 1460 đến 1497 trong lịch sử Việt Nam.
-<br>
-<strong>Lịch sử</strong><br>
-Thánh Tông di thảo là cái tên do người đời sau đặt cho một tác phẩm gồm 19 truyện được viết theo loại hình truyền kỳ, tạp ký và ngụ ngôn (kể từ đây gọi chung là truyện). Không như Lĩnh Nam chích quái, Thiên Nam vân lục,...thường ghi lại những tích có sẵn; ở đây người viết hoặc dựa vào truyện dân gian, hoặc dựa vào những sự kiện lịch sử (có liên quan đến thời kháng chiến chống Minh và thời của vua Lê Thánh Tông), hoặc dựa vào văn liệu hay thực tế cuộc sống mà cấu tạo nên truyện mới. Vì vậy có thể nói Thánh Tông di thảo là một sáng tác phẩm, trong đó có phóng tác, có tái tạo và có cả hư cấu.[1]
 
-Tuy nhiên, bản gốc đã thất lạc, hiện chỉ còn lưu giữ được bản chép tay gồm 2 quyển do người thời Nguyễn sửa chữa và viết thêm mang ký hiệu A.202 tại Thư viện Khoa học xã hội (Hà Nội).
-
-<br><strong>Nội dung</strong><br>
-Nguyên bản gồm 19 thiên, dưới mỗi thiên đều có tiếm bình của Sơn Nam Thúc (山南叔). Tác giả phiếm xưng "dư" (予).<br>
-
-Quyển thượng<br>
-Mai Châu yêu nữ truyện (枚州妖女傳)<br>
-Thiềm thừ miêu duệ kí (蟾蜍苗裔記)<br>
-Lưỡng phật đấu thuyết kí (兩佛鬥說記)<br>
-Phú cái truyện (富丐傳)<br>
-Nhị thần nữ truyện (二神女傳)<br>
-Sơn quân phả (山君譜)<br>
-Văn thư lục (蚊書錄)<br>
-Hoa quốc kì duyên (花國奇緣)<br>
-Vũ môn tùng miếu (禹門叢笑)<br>
-Ngư gia chí dị (漁家誌異)<br>
-Lũng cổ phán từ (聾瞽判辭)<br>
-Ngọc nữ quy chân chúa (玉女歸真主)<br>
-Hiếu đễ nhị thần kí (孝弟二神記)<br>
-Quyển hạ<br>
-Dương phu truyện (羊夫傳)<br>
-Trần nhân cư thủy phủ (塵人居水府)<br>
-Lãng Bạc phùng tiên (浪泊逢仙)<br>
-Mộng kí (夢記)<br>
-Thử tinh truyện (鼠精傳)<br>
-Nhất thư thủ thần nữ (一書取神女)<br>
-<strong>Văn hóa</strong><br>
-Thánh Tông di thảo lần đầu được các học giả Bùi Văn Nguyên và Nguyễn Ngọc San sơ dịch 4 thiên in trong Hợp tuyển thơ văn Việt Nam (thế kỉ X đến thế kỉ XVII) do Nhà xuất bản Văn Hóa và viện Văn Học ấn hành năm 1962. Năm 1963 thì hai cơ quan này phát hành bản dịch hoàn chỉnh của học giả Nguyễn Bích Ngô, có học giả Phạm Văn Thắm hiệu đính và làm phần giới thiệu. Tới thập niên 1980 lần lượt có ấn bản Trung Quốc, Đài Loan và Pháp.Ở thập niên 1960, học giả Nguyễn Đổng Chi đưa 19 thiên Thánh Tông di thảo vào bộ Kho tàng cổ tích Việt Nam nhưng sửa lại giọng điệu và một số tình tiết cho hợp lứa tuổi nhi đồng.
-
-
-</p>
+<p id="popup-content"></p>
 
 </div>
 
@@ -289,10 +338,38 @@ Thánh Tông di thảo lần đầu được các học giả Bùi Văn Nguyên 
 <script>
 
 function openPopup(title){
-document.getElementById("popup").style.display="flex";
-document.getElementById("popup-title").innerText=title;
+
+let content="";
+
+if(title=="Thánh Tông Di Thảo"){
+content= `Thánh Tông di thảo là cái tên do người đời sau đặt cho một tác phẩm gồm 19 truyện được viết theo loại hình truyền kỳ, tạp ký và ngụ ngôn (kể từ đây gọi chung là truyện).được viết theo loại hình truyền kỳ, tạp ký và ngụ ngôn (kể từ đây gọi chung là truyện). Không như Lĩnh Nam chích quái, Thiên Nam vân lục,...thường ghi lại những tích có sẵn; ở đây người viết hoặc dựa vào truyện dân gian, hoặc dựa vào những sự kiện lịch sử (có liên quan đến thời kháng chiến chống Minh và thời của vua Lê Thánh Tông), hoặc dựa vào văn liệu hay thực tế cuộc sống mà cấu tạo nên truyện mới. Vì vậy có thể nói Thánh Tông di thảo là một sáng tác phẩm, trong đó có phóng tác, có tái tạo và có cả hư cấu. `    ;
 }
 
+if(title=="Miếu Bà Chúa Xứ Núi Sam"){
+content=`Giả thuyết 1: Vào năm 1941, nhà khảo cổ người Pháp đã đến miếu bà chúa Xứ Núi Sam khảo sát rất tỉ mỉ và kết luận tượng bà thuộc loại tượng thần Vishnu, nguồn gốc từ Ấn Độ. Tượng bà chúa làm bằng chất liệu đá Sa Thạch có giá trị nghệ thuật cao, ra đời vào khoảng cuối thế kỷ thứ 6.
+<br>Giả thuyết 2: Trong chương trình khảo cổ học nét xưa, cố nhà văn Sơn Nam lại đưa ra khẳng định, tượng Bà là pho tượng phật đàn ông của người Khơ Me bị bỏ quên lâu đời trên đỉnh núi Sam. Sau này, người Việt đưa tượng vào miếu điểm tô lại với nước sơn mới trở thành tượng phật đàn bà mặc áo lụa, đeo dây chuyền.`;
+}
+if(title=="MIỀN NAM LỤC TỈNH 01"){
+content=`Tập 1: "Miền Nam và Văn học Dân gian Địa phương" trong bộ sách Văn học miền Nam Lục tỉnh của Nguyễn Văn Hầu tập trung khảo cứu các loại hình văn học dân gian thời kỳ khai hoang, mở cõi. Sách làm nổi bật tính cách hào sảng, trọng nghĩa tình của con người phương Nam qua ca dao, tục ngữ, nói thơ, và truyện kể.Mô tả quá trình con người chiến đấu với thiên nhiên, khẩn hoang, và xây dựng vùng đất mới.Tổng hợp ca dao, hò, vè, câu đố, truyện kể dân gian đặc trưng vùng sông nước Nam Bộ.Thể hiện tâm hồn, tiếng nói, và văn hóa riêng biệt của người dân lục tỉnh.`;
+}
+if(title=="ÔNG HÙM XÁM VÀ MA TRÀNH"){
+content=`Lão Tò He già nhẹ nhàng thắp đèn dầu, phiên chợ chiều đã vãn người, vài sạp đã bắt đầu tắt đèn, đóng cửa. Như mọi khi lão về làng, bọn trẻ là những người đầu tiên mong ngóng, chúng tranh nhau ngồi trước để có thể ngắm nhìn những con tò he trên tay lão, và biết đâu may mắn vị trí đó lại vô tình được lão chọn để tặng nó mỗi khi kết thúc chuyện. Dám người lớn hiếu kì chẳng màng những món quà quê con trẻ, cái khiến họ ở lại là sự thích thú cái thế giới tâm linh qua lời kể của Lão, sống động cứ như là lão bước ra từ chính câu chuyện đó.`;
+}
+if(title=="Cọp 3 móng"){
+content=`Sau trận đánh La Ngà (năm 1948) tại chiến khu D xuất hiện một con cọp ăn xác lính chết trận riết thành “nghiện”... món thịt người (!?). Con cọp này một chân chỉ có ba móng, rất tinh quái và liều lĩnh. Người ta đồn thổi do ăn nhiều thịt người quá nên nó đã thành “cọp tinh”. Có giả thuyết cho rằng nó là thú nuôi của một chủ đồn điền cao su người Pháp, bị xổng chuồng chạy vào rừng sâu sống hoang dã.`;
+}
+if(title=="Ngôi làng cổ mộ"){
+content=`gia đình Hoài chuyển đến ngôi làng, kể từ đó Hoài gặp ác mộng vài tháng nhưng văn phong cứ như đang gặp ác mộng kéo dài vài năm vậy, kiểu làm quá lên á, nhưng rồi có cô đồng cùng học trò đến giúp đỡ Hoài và giúp đỡ làng là trừ ma.
+
+Tuy nhiên, mình phải nói rằng, từ tình tiết ở phần một này nó diễn ra quá nhanh, đến mức các nhân vật (kể cả nhân vật chính) điều không có nội tâm hay là miêu tả gì khác ngoài xuề xòa, viết cho thật nhanh, như một tác giả non tay đến mức bạn chỉ muốn vứt truyện Ngôi Làng Cổ Mộ sang một bên và muốn đọc truyện khác cho nhanh.`;
+}
+
+
+
+document.getElementById("popup").style.display="flex";
+document.getElementById("popup-title").innerText=title;
+document.getElementById("popup-content").innerHTML = content;
+}
 function closePopup(){
 document.getElementById("popup").style.display="none";
 }
