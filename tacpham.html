@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tác phẩm</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+:root {
+    --primary-bg: #f0f4ff;
+    --card-bg: rgba(255,255,255,0.9);
+        --accent-blue: #708ed6;
+        --text-dark: #333;
+    --shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:var(--primary-bg);
+margin:0;
+}
+
+/* HEADER giống hệt */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 50px;
+}
+
+nav a{
+text-decoration:none;
+color:var(--text-dark);
+margin:0 15px;
+font-weight:500;
+}
+
+.auth-buttons button{
+padding:8px 20px;
+border-radius:20px;
+border:none;
+cursor:pointer;
+margin-left:10px;
+font-weight:bold;
+}
+
+.btn-login{
+background:white;
+border:1px solid #ddd;
+}
+
+.btn-signup{
+background:var(--accent-blue);
+color:white;
+}
+
+/* banner tiêu đề */
+
+.page-title{
+text-align:center;
+padding:60px 20px;
+}
+
+.page-title h1{
+font-size:45px;
+}
+
+/* GRID tác phẩm */
+
+.tacpham-container{
+max-width:1200px;
+margin:auto;
+padding:30px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.tacpham-card{
+background:var(--card-bg);
+border-radius:20px;
+overflow:hidden;
+box-shadow:var(--shadow);
+transition:0.3s;
+cursor:pointer;
+}
+
+.tacpham-card:hover{
+transform:translateY(-8px);
+}
+
+.tacpham-img{
+width:100%;
+height:220px;     /* chiều cao khung ảnh */
+ /* tự cắt ảnh để vừa khung */
+border-top-left-radius:20px;
+border-top-right-radius:20px;
+display:block;
+}
+
+.tacpham-content{
+padding:20px;
+}
+
+.tacpham-content h3{
+margin:0;
+}
+
+.tacpham-content p{
+font-size:14px;
+color:#666;
+}
+
+/* popup chi tiết */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.popup-box{
+background:white;
+padding:40px;
+border-radius:20px;
+width:800px;
+text-align:center;
+  max-height: 80vh;   /* chiều cao tối đa */
+    overflow-y: auto;   /* cho phép kéo xuống */
+}
+
+.close{
+position:absolute;
+top:30px;
+right:40px;
+font-size:25px;
+cursor:pointer;
+color:white;
+}
+.tacgia{
+    margin-top:5px;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.tacgia b{
+    color:#000;
+    margin-right:8px;
+}
+
+.khuyetdanh{
+    background:#4CAF50;
+    color:white;
+    padding:3px 10px;
+    border-radius:5px;
+    font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div>
+<i class="fa-solid fa-circle-user fa-2xl"></i>
+</div>
+
+<nav>
+<a href="nhom6.html">Trang chủ</a>
+<a href="tacpham.html">Tác phẩm</a>
+<a href="#">Tìm kiếm</a>
+</nav>
+
+<div class="auth-buttons">
+<button class="btn-login">Đăng nhập</button>
+<button class="btn-signup">Đăng ký</button>
+</div>
+
+</header>
+
+<div class="page-title">
+<h1>VĂN HỌC DÂN GIAN NAM BỘ</h1>
+</div>
+
+<div class="tacpham-container">
+
+<!-- TÁC PHẨM 1 -->
+<div class="tacpham-card" onclick="openPopup('Thánh Tông Di Thảo')">
+<img src="tac pham 1.jpg" class="tacpham-img">
+<div class="tacpham-content">
+    <span class="khuyetdanh">Khuyết Danh</span>
+
+<h3>Thánh Tông Di Thảo</h3>
+<p>Thánh tông di thảo (Bản thảo còn sót lại thời Thánh Tông) không đề tên tác giả, không ghi năm biên soạn.</p>
+</div>
+</div>
+
+<!-- TÁC PHẨM 2 -->
+<div class="tacpham-card" onclick="openPopup('Tác phẩm 2')">
+<img src="tac pham 2.jpg" class="tacpham-img">
+<div class="tacpham-content">
+<h3>Tên tác phẩm</h3>
+<p>Mô tả ngắn tác phẩm...</p>
+</div>
+</div>
+
+<!-- TÁC PHẨM 3 -->
+<div class="tacpham-card" onclick="openPopup('Tác phẩm 3')">
+<img src="anh3.jpg" class="tacpham-img">
+<div class="tacpham-content">
+<h3>Tên tác phẩm</h3>
+<p>Mô tả ngắn tác phẩm...</p>
+</div>
+</div>
+
+<!-- TÁC PHẨM 4 -->
+<div class="tacpham-card" onclick="openPopup('Tác phẩm 4')">
+<img src="anh4.jpg" class="tacpham-img">
+<div class="tacpham-content">
+<h3>Tên tác phẩm</h3>
+<p>Mô tả ngắn tác phẩm...</p>
+</div>
+</div>
+
+</div>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+<div class="close" onclick="closePopup()">✖</div>
+
+<div class="popup-box">
+
+<h2 id="popup-title"></h2>
+<p>
+<strong>thánh tông di thảo là gì?</strong><br>
+Thánh Tông di thảo (chữ Hán: 聖宗遺草; tạm dịch là "Bản thảo để lại của [Lê] Thánh Tông") là một tác phẩm viết bằng chữ Hán, nhưng lấy đề tài ở Việt Nam, tương truyền là của vua Lê Thánh Tông, trị vì từ năm 1460 đến 1497 trong lịch sử Việt Nam.
+<br>
+<strong>Lịch sử</strong><br>
+Thánh Tông di thảo là cái tên do người đời sau đặt cho một tác phẩm gồm 19 truyện được viết theo loại hình truyền kỳ, tạp ký và ngụ ngôn (kể từ đây gọi chung là truyện). Không như Lĩnh Nam chích quái, Thiên Nam vân lục,...thường ghi lại những tích có sẵn; ở đây người viết hoặc dựa vào truyện dân gian, hoặc dựa vào những sự kiện lịch sử (có liên quan đến thời kháng chiến chống Minh và thời của vua Lê Thánh Tông), hoặc dựa vào văn liệu hay thực tế cuộc sống mà cấu tạo nên truyện mới. Vì vậy có thể nói Thánh Tông di thảo là một sáng tác phẩm, trong đó có phóng tác, có tái tạo và có cả hư cấu.[1]
+
+Tuy nhiên, bản gốc đã thất lạc, hiện chỉ còn lưu giữ được bản chép tay gồm 2 quyển do người thời Nguyễn sửa chữa và viết thêm mang ký hiệu A.202 tại Thư viện Khoa học xã hội (Hà Nội).
+
+<br><strong>Nội dung</strong><br>
+Nguyên bản gồm 19 thiên, dưới mỗi thiên đều có tiếm bình của Sơn Nam Thúc (山南叔). Tác giả phiếm xưng "dư" (予).<br>
+
+Quyển thượng<br>
+Mai Châu yêu nữ truyện (枚州妖女傳)<br>
+Thiềm thừ miêu duệ kí (蟾蜍苗裔記)<br>
+Lưỡng phật đấu thuyết kí (兩佛鬥說記)<br>
+Phú cái truyện (富丐傳)<br>
+Nhị thần nữ truyện (二神女傳)<br>
+Sơn quân phả (山君譜)<br>
+Văn thư lục (蚊書錄)<br>
+Hoa quốc kì duyên (花國奇緣)<br>
+Vũ môn tùng miếu (禹門叢笑)<br>
+Ngư gia chí dị (漁家誌異)<br>
+Lũng cổ phán từ (聾瞽判辭)<br>
+Ngọc nữ quy chân chúa (玉女歸真主)<br>
+Hiếu đễ nhị thần kí (孝弟二神記)<br>
+Quyển hạ<br>
+Dương phu truyện (羊夫傳)<br>
+Trần nhân cư thủy phủ (塵人居水府)<br>
+Lãng Bạc phùng tiên (浪泊逢仙)<br>
+Mộng kí (夢記)<br>
+Thử tinh truyện (鼠精傳)<br>
+Nhất thư thủ thần nữ (一書取神女)<br>
+<strong>Văn hóa</strong><br>
+Thánh Tông di thảo lần đầu được các học giả Bùi Văn Nguyên và Nguyễn Ngọc San sơ dịch 4 thiên in trong Hợp tuyển thơ văn Việt Nam (thế kỉ X đến thế kỉ XVII) do Nhà xuất bản Văn Hóa và viện Văn Học ấn hành năm 1962. Năm 1963 thì hai cơ quan này phát hành bản dịch hoàn chỉnh của học giả Nguyễn Bích Ngô, có học giả Phạm Văn Thắm hiệu đính và làm phần giới thiệu. Tới thập niên 1980 lần lượt có ấn bản Trung Quốc, Đài Loan và Pháp.Ở thập niên 1960, học giả Nguyễn Đổng Chi đưa 19 thiên Thánh Tông di thảo vào bộ Kho tàng cổ tích Việt Nam nhưng sửa lại giọng điệu và một số tình tiết cho hợp lứa tuổi nhi đồng.
+
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function openPopup(title){
+document.getElementById("popup").style.display="flex";
+document.getElementById("popup-title").innerText=title;
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
