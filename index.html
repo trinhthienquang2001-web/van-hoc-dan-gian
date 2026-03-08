@@ -10,7 +10,7 @@
 
         :root {
             --primary-bg: #f0f4ff;
-            --card-bg: rgba(255, 255, 255, 0.8);
+            --  -bg: rgba(255, 255, 255, 0.8);
             --accent-blue: #708ed6;
             --text-dark: #333;
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -148,20 +148,89 @@
             box-shadow: var(--shadow);
         }
 
-        .member-item {
-            background: #eef2ff;
-            padding: 10px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-        }
+/* ===== MEMBER SECTION ===== */
 
-        .member-item:hover { background: #dce4ff; }
+.member-section{
+    width:85%;
+    margin:100px auto;
+    text-align:center;
+}
 
+.member-section h2{
+    font-size:32px;
+    margin-bottom:40px;
+}
+
+.member-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+}
+
+/* CARD */
+
+.member-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.35s;
+}
+
+.member-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
+.leader-card{
+background:linear-gradient(135deg,#1c1c1c,#2f2f2f);
+color:white;
+border:2px solid gold;
+box-shadow:0 10px 30px rgba(255,215,0,0.4);
+}
+/* ẢNH TRÒN */
+
+.member-card img{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #ffd86b;
+    margin-bottom:10px;
+}
+
+/* TÊN */
+
+.member-name{
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* ICON GIỚI TÍNH */
+
+.gender{
+    margin-left:6px;
+}
+
+/* SỞ THÍCH */
+
+.hobby{
+    margin-top:8px;
+}
+
+.hobby i{
+    margin:0 6px;
+    color:#ff8c00;
+    font-size:18px;
+}
+
+/* PHƯƠNG CHÂM */
+
+.quote{
+    font-size:14px;
+    margin-top:10px;
+    color:#666;
+    font-style:italic;
+}
         .info-card {
             display: flex;
             gap: 10px;
@@ -704,3 +773,128 @@
     </div>
 
     </div>
+<section class="member-section">
+
+<h2>👨‍💻 Thành viên phát triển website</h2>
+
+<div class="member-grid">
+
+<div class="member-card leader-card">
+<img src="thienquang.jpg">
+<div class="member-name">
+Trịnh Thiên Quang<i class="fa-solid fa-mars gender" style="color:#3498db"></i> <span>♊</span>
+</div>
+
+<div class="hobby">
+<i class="fa-solid fa-dumbbell"></i>
+<i class="fa-solid fa-microphone"></i>
+<i class="fa-solid fa-person-swimming"></i>
+</div>
+
+<div class="favorite-color">
+<i class="fa-solid fa-circle" style="color:#00aaff"></i>
+<i class="fa-solid fa-square-root-variable"></i>
+</div>
+
+<p class="quote">"⚖️ !!!EVERYONE COME BACK, WE’RE HAVING A RETRIAL!!! ⚖️"</p>
+</div>
+
+
+<div class="member-card">
+<img src="giakhanh.jpg">
+<div class="member-name">
+Võ Lâm Gia Khánh <i class="fa-solid fa-mars gender" style="color:#3498db"></i><span>♍</span>
+</div>
+
+<div class="hobby">
+<i class="fa-solid fa-basketball"></i>
+<i class="fa-solid fa-gamepad"></i>
+<i class="fa-solid fa-music"></i>
+</div>
+<div class="favorite-color">
+    <i class="fa-solid fa-atom"></i>
+<i class="fa-solid fa-circle" style="color:#A8E6CF"></i>
+</div>
+<p class="quote">"Súng không lau súng mau han rỉ
+<br>Người không rèn, ý chí không cao"</p>
+</div>
+
+
+<div class="member-card">
+<img src="maiquynh.jpg">
+<div class="member-name">
+Trần Tô Mai Quỳnh <i class="fa-solid fa-mars gender" style="color:#3498db"></i><span>♋</span>
+</div>
+
+<div class="hobby">
+<i class="fa-solid fa-camera"></i>
+<i class="fa-solid fa-book"></i>
+<i class="fa-solid fa-music"></i>
+</div>
+<div class="favorite-subject">
+<i class="fa-solid fa-earth-americas" ></i>
+<i class="fa-solid fa-circle" style="color:#ff69b4"></i>
+</div>
+<p class="quote">"Kệ đi"</p>
+</div>
+
+
+<div class="member-card">
+<img src="anh.jpg">
+<div class="member-name">
+Sơn Mỹ Kim<i class="fa-solid fa-venus gender" style="color:#ff69b4;"></i><span>♐</span>
+</div>
+
+<div class="hobby">
+<i class="fa-solid fa-futbol"></i>
+<i class="fa-solid fa-table-tennis-paddle-ball"></i>
+<i class="fa-solid fa-music"></i>
+</div>
+<div class="favorite-subject">
+<i class="fa-solid fa-flask"></i>
+<i class="fa-solid fa-circle" style="color:#8A2BE2"></i>
+
+</div>
+<p class="quote">"Nằm thẳng là nhất."</p>
+</div>
+
+
+<div class="member-card">
+<img src="ngochan.jpg">
+<div class="member-name">
+Nguyễn Ngọc Hân<i class="fa-solid fa-venus gender" style="color:#ff69b4;"></i><span>♊</span>
+</div>
+
+<div class="hobby">
+<i class="fa-solid fa-gamepad"></i>
+<i class="fa-solid fa-laptop-code"></i>
+<i class="fa-solid fa-headphones"></i>
+</div>
+<div class="favorite-subject">
+<i class="fa-solid fa-atom"></i>
+<i class="fa-solid fa-circle" style="color:#00AEEF"></i>
+</div>
+<p class="quote">"Giá trị thật mới là quan trọng."</p>
+</div>
+
+
+<div class="member-card">
+<img src="huynhbang.jpg">
+<div class="member-name">
+Huỳnh Khánh Băng <i class="fa-solid fa-venus gender" style="color:#ff69b4;"></i><span>♒</span>
+</div>
+
+<div class="hobby">
+<i class="fa-solid fa-volleyball"></i>
+<i class="fa-solid fa-table-tennis-paddle-ball"></i>
+<i class="fa-solid fa-music"></i>
+</div>
+<div class="favorite-subject">
+<i class="fa-solid fa-scroll"></i>
+<i class="fa-solid fa-circle" style="color:#4ECDC4"></i>
+</div>
+<p class="quote">"Làm những gì mình thích, ở bên những điều khiến mình thấy bình yên."</p>
+</div>
+
+</div>
+</section>
