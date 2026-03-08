@@ -267,7 +267,21 @@ box-shadow:0 10px 30px rgba(255,215,0,0.4);
             width:320px;
             margin-top:30px;
         }
-
+.welcome-box{
+    position: fixed;
+    top: 90px;   /* tránh bị header che */
+    right: 20px;
+    background: linear-gradient(45deg,#00f5d4,#9b5de5);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.6s ease;
+    z-index: 2000;
+}
         /* HIỆU ỨNG XUẤT HIỆN */
         .reveal{
             opacity:0;
@@ -495,6 +509,56 @@ box-shadow:0 10px 30px rgba(255,215,0,0.4);
         height:40px;
         width:auto;
     }
+    /* ===== VIDEO SECTION ===== */
+
+.video-section{
+    width:85%;
+    margin:80px auto;
+    text-align:center;
+}
+
+.video-section h2{
+    font-size:30px;
+    margin-bottom:30px;
+}
+
+.video-box{
+    position:relative;
+    width:900px;
+    margin:auto;
+    border-radius:25px;
+    overflow:hidden;
+
+    background:white;
+
+    box-shadow:0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* viền gradient đẹp */
+
+.video-box::before{
+    content:"";
+    position:absolute;
+    inset:-4px;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff7a00,#ffd86b,#708ed6,#a66cff);
+    z-index:-1;
+}
+
+/* video */
+
+.video-box video{
+    width:100%;
+    display:block;
+    border-radius:25px;
+}
+
+/* hiệu ứng hover */
+
+.video-box:hover{
+    transform:scale(1.02);
+    transition:0.3s;
+}
         </style>
 
         </head>
@@ -898,3 +962,38 @@ Huỳnh Khánh Băng <i class="fa-solid fa-venus gender" style="color:#ff69b4;">
 
 </div>
 </section>
+<section class="video-section">
+
+<h2>🎬Đây là chúng mìnhhhh</h2>
+
+<div class="video-box">
+
+    <video controls autoplay loop muted>
+<source src="0308.mp4" type="video/mp4">
+Trình duyệt của bạn không hỗ trợ video.
+</video>
+
+</div>
+
+</section>
+<div id="welcomeBox" class="welcome-box">
+    👋Hello, chào bạn tới trang web văn học dân gian của tụi mìnhh
+</div>
+<script>
+window.onload = function(){
+
+    const box = document.getElementById("welcomeBox");
+
+    setTimeout(function(){
+        box.style.opacity = "1";
+        box.style.transform = "translateY(0)";
+    },500);
+
+    setTimeout(function(){
+        box.style.opacity = "0";
+        box.style.transform = "translateY(-30px)";
+    },5000);
+
+}
+</script>
+</body>
