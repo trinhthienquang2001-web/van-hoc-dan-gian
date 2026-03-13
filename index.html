@@ -647,6 +647,10 @@ box-shadow:0 10px 30px rgba(255,215,0,0.4);
             index = (index - 1 + totalSlides) % totalSlides;
             updateSlide();
         });
+        setInterval(() => {
+    index = (index + 1) % totalSlides;
+    updateSlide();
+}, 4000); //
         </script>
         <script>
 
@@ -732,77 +736,7 @@ box-shadow:0 10px 30px rgba(255,215,0,0.4);
                 </p>
             </div>
         </div>
-        <script>
-
-        function register() {
-
-        let username = document.getElementById("regUser").value;
-        let email = document.getElementById("regEmail").value;
-        let password = document.getElementById("regPass").value;
-
-        if(username === "" || email === "" || password === ""){
-        alert("Vui lòng nhập đầy đủ thông tin!");
-        return;
-        }
-
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
-
-        alert("Đăng ký thành công!");
-
-        closeForm('registerForm');
-
-        }
-    function login(){
-
-    let username = document.getElementById("loginUser").value;
-    let password = document.getElementById("loginPass").value;
-
-    let savedUser = localStorage.getItem("username");
-    let savedPass = localStorage.getItem("password");
-
-    if(username === savedUser && password === savedPass){
-
-    alert("Đăng nhập thành công!");
-
-    closeForm("loginForm");
-
-    /* Lưu trạng thái đăng nhập */
-    localStorage.setItem("loggedUser", username);
-
-    /* Hiển thị tài khoản */
-    showUser();
-
-    }
-    else{
-    alert("Sai tên đăng nhập hoặc mật khẩu!");
-    }
-
-    }
-    function showUser(){
-
-    let user = localStorage.getItem("loggedUser");
-
-    if(user){
-
-    document.querySelector(".auth-buttons").innerHTML =
-    `
-    <span style="font-weight:bold">👤 ${user}</span>
-    <button onclick="logout()" class="btn-login">Đăng xuất</button>
-    `;
-
-    }
-
-    }
-    function logout(){
-
-    localStorage.removeItem("loggedUser");
-
-    location.reload();
-
-    }
-    showUser();
-        </script>
+            
     <div class="sidebar">
 
     <ul class="menu">
@@ -995,5 +929,61 @@ window.onload = function(){
     },5000);
 
 }
+</script>
+<script>
+
+function register(){
+
+let username = document.getElementById("regUser").value;
+let password = document.getElementById("regPass").value;
+
+if(username=="" || password==""){
+alert("Vui lòng nhập đầy đủ thông tin!");
+return;
+}
+
+localStorage.setItem("username", username);
+localStorage.setItem("password", password);
+
+alert("Đăng ký thành công!");
+
+document.getElementById("registerForm").style.display="none";
+
+}
+
+function login(){
+
+let username = document.getElementById("loginUser").value;
+let password = document.getElementById("loginPass").value;
+
+let savedUser = localStorage.getItem("username");
+let savedPass = localStorage.getItem("password");
+
+if(username === savedUser && password === savedPass){
+
+alert("Đăng nhập thành công!");
+
+document.querySelector(".auth-buttons").innerHTML =
+`
+<span>👤 ${username}</span>
+<button onclick="logout()" class="btn-login">Đăng xuất</button>
+`;
+
+document.getElementById("loginForm").style.display="none";
+
+}else{
+
+alert("Sai tên đăng nhập hoặc mật khẩu!");
+
+}
+
+}
+
+function logout(){
+localStorage.removeItem("username");
+localStorage.removeItem("password");
+location.reload();
+}
+
 </script>
 </body>
