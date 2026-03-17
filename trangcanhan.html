@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Trang Cá Nhân</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+:root{
+--primary-bg:#f0f4ff;
+--accent-blue:#708ed6;
+--text-dark:#333;
+}
+
+body{
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background:var(--primary-bg);
+margin:0;
+padding:0;
+margin-left:270px;
+padding-top:90px;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+
+position:fixed;
+top:0;
+left:0;
+right:0;
+
+background:#e6ecff;
+border-bottom:2px solid #cfd8ff;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+z-index:1000;
+}
+
+.logo img{
+height:40px;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+margin:0 15px;
+font-weight:600;
+padding:6px 12px;
+border-radius:8px;
+transition:0.25s;
+}
+
+nav a:hover{
+background:#ffd86b;
+}
+
+.auth-buttons{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.auth-buttons button{
+padding:8px 20px;
+border-radius:20px;
+border:none;
+cursor:pointer;
+font-weight:bold;
+}
+
+.btn-login{
+background:white;
+border:1px solid #ddd;
+}
+
+.btn-signup{
+background:#708ed6;
+color:white;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:260px;
+position:fixed;
+left:30px;
+top:110px;
+
+background:white;
+border-radius:15px;
+padding:20px;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.menu{
+list-style:none;
+padding:0;
+margin:0;
+}
+.menu a{
+text-decoration:none;
+color:inherit;
+width:100%;
+display:block;
+}
+.menu li{
+padding:12px 10px;
+font-size:17px;
+color:#555;
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+border-radius:8px;
+transition:0.25s;
+}
+
+.menu li:hover{
+background:#fff3cd;
+color:#ff8c00;
+}
+
+.section-title{
+margin-top:20px;
+color:#ff8c00;
+font-weight:bold;
+}
+
+.divider{
+height:1px;
+background:#eee;
+margin:10px 0 15px 0;
+}
+
+.social{
+display:flex;
+gap:15px;
+margin-bottom:10px;
+}
+
+.social i{
+font-size:28px;
+}
+
+/* KHUNG THÔNG TIN */
+
+.thongtin{
+width:800px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.tieude{
+text-align:center;
+font-size:26px;
+margin-bottom:30px;
+font-weight:bold;
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.o{
+display:flex;
+flex-direction:column;
+}
+
+.o label{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.o input,
+.o select{
+padding:10px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.nut-luu{
+margin-top:30px;
+padding:12px 25px;
+background:#3b82f6;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+}
+.profile-box{
+text-align:center;
+margin-bottom:40px;
+}
+
+.avatar-box{
+position:relative;
+display:inline-block;
+}
+
+#avatarPreview{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #708ed6;
+}
+
+.avatar-btn{
+display:block;
+margin-top:10px;
+background:#708ed6;
+color:white;
+padding:6px 14px;
+border-radius:20px;
+cursor:pointer;
+font-size:14px;
+}
+
+#avatarInput{
+display:none;
+}
+overflow-y:auto;
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<a href="index.html">
+<img src="logonhom1.png">
+</a>
+</div>
+
+<nav>
+<a href="index.html">🏠Trang chủ</a>
+<a href="tacpham.html">📚Tác phẩm</a>
+</nav>
+
+<div class="auth-buttons">
+<button class="btn-login" onclick="openLogin()">Đăng nhập</button>
+<button class="btn-signup" onclick="openRegister()">Đăng ký</button>
+</div>
+
+</header>
+
+
+<!-- MENU TRÁI -->
+
+<div class="sidebar">
+
+<ul class="menu">
+
+<li>
+<a href="index.html">🏠 Trang Chủ</a>
+</li>
+
+<li>
+<a href="tacpham.html">📚 Tác phẩm</a>
+</li>
+
+</ul>
+
+<div class="section-title">Kết Nối</div>
+<div class="divider"></div>
+
+<div class="social">
+<a href="https://www.facebook.com/khongaingoaiquaxg.eyznl" target="_blank">
+<i class="fab fa-facebook" style="color:#1877f2"></i>
+</a>
+</div>
+
+<div class="section-title">Liên Hệ</div>
+<div class="divider"></div>
+
+<p>📞 0965 847 001</p>
+<p>✉ trinhthienquang2001@gmail.com</p>
+
+</div>
+
+
+<!-- THÔNG TIN CÁ NHÂN -->
+<div class="profile-box">
+
+<div class="avatar-box">
+
+<img id="avatarPreview" src="avatar.png">
+
+<input type="file" id="avatarInput" accept="image/*">
+
+<label for="avatarInput" class="avatar-btn">
+Đổi ảnh đại diện
+</label>
+
+</div>
+
+<h2 id="tenNguoiDung"></h2>
+
+</div>
+<div class="thongtin">
+
+<div class="tieude">
+Thông Tin Cá Nhân
+</div>
+
+<div class="form-grid">
+
+<div class="o">
+<label>Tên người dùng *</label>
+<input type="text" id="tennguoidung">
+</div>
+
+<div class="o">
+<label>Email *</label>
+<input type="email" id="email">
+</div>
+
+<div class="o">
+<label>Họ và tên *</label>
+<input type="text" id="hoten">
+</div>
+
+<div class="o">
+<label>Ngày sinh</label>
+<input type="date">
+</div>
+
+<div class="o">
+<label>Giới tính</label>
+<select>
+<option>Nam</option>
+<option>Nữ</option>
+</select>
+</div>
+
+</div>
+
+<button class="nut-luu" onclick="luuThongTin()">Lưu thông tin</button>
+
+</div>
+
+
+<script>
+
+/* LƯU THÔNG TIN */
+
+function luuThongTin(){
+
+let ten=document.getElementById("tennguoidung").value
+let email=document.getElementById("email").value
+let hoten=document.getElementById("hoten").value
+
+localStorage.setItem("tennguoidung",ten)
+localStorage.setItem("email",email)
+localStorage.setItem("hoten",hoten)
+
+alert("Đã lưu thông tin")
+
+}
+
+/* TỰ ĐỘNG ĐIỀN LẠI */
+
+window.onload=function(){
+
+document.getElementById("tennguoidung").value=localStorage.getItem("tennguoidung")||""
+document.getElementById("email").value=localStorage.getItem("email")||""
+document.getElementById("hoten").value=localStorage.getItem("hoten")||""
+
+}
+
+function logout(){
+localStorage.removeItem("loggedUser");
+location.reload();
+}
+
+function checkLogin(){
+
+let user = localStorage.getItem("loggedUser");
+
+if(user){
+
+document.querySelector(".auth-buttons").innerHTML =
+`
+<a href="trangcanhan.html" class="user-profile"> 👤 ${user}</a>
+<button onclick="logout()" class="btn-login">Đăng xuất</button>
+`;
+
+}
+
+}
+
+checkLogin();
+
+</script>
+<script>
+
+let avatarInput = document.getElementById("avatarInput")
+let avatarPreview = document.getElementById("avatarPreview")
+
+/* tải avatar đã lưu */
+
+let savedAvatar = localStorage.getItem("avatar")
+
+if(savedAvatar){
+
+avatarPreview.src = savedAvatar
+
+}
+
+/* upload avatar */
+
+avatarInput.addEventListener("change", function(){
+
+let file = this.files[0]
+
+let reader = new FileReader()
+
+reader.onload = function(){
+
+avatarPreview.src = reader.result
+
+localStorage.setItem("avatar", reader.result)
+
+}
+
+reader.readAsDataURL(file)
+
+})
+
+/* hiển thị tên tài khoản */
+
+let user = localStorage.getItem("loggedUser")
+
+if(user){
+
+document.getElementById("tenNguoiDung").innerText = user
+
+}
+
+</script>
+</body>
+</html>
