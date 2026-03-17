@@ -24,29 +24,28 @@ margin:0;
 }
 
 /* HEADER giống hệt */
-header{
-display:flex;
+ header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 align-items:center;
-justify-content:space-between;
 
-padding:15px 40px;
-height:70px;
+    padding:15px 40px;
 
-position:fixed;
-top:0;
-left:0;
-right:0;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
 
-background:#e6ecff; /* màu menu khác nền */
+    background:#e6ecff; /* màu menu mới */
 
-border-bottom:2px solid #cfd8ff; /* đường viền */
+    border-bottom:2px solid #cfd8ff; /* đường viền */
 
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
 
-z-index:1000;
-
-box-sizing:border-box;
-}
+    z-index:1000;
+    box-sizing:border-box;
+    }
 nav a{
 text-decoration:none;
 color:var(--text-dark);
@@ -118,8 +117,7 @@ transform:translateY(-8px);
 
 .tacpham-img{
 width:100%;
-height:220px;     /* chiều cao khung ảnh */
- /* tự cắt ảnh để vừa khung */
+height:220px;
 border-top-left-radius:20px;
 border-top-right-radius:20px;
 display:block;
@@ -156,23 +154,28 @@ z-index:999;
 
 /* khung form */
 .popup-box{
-background:#fff;
-padding:30px;
-width:350px;
-border-radius:12px;
-text-align:center;
 position:relative;
+background:white;
+padding:25px;
+border-radius:10px;
+width:400px;
+max-width:90%;
 }
-
 /* nút đóng */
 .close{
 position:absolute;
-right:15px;
 top:10px;
-font-size:22px;
+right:15px;
+font-size:24px;
+font-weight:bold;
+color:#333;
 cursor:pointer;
+z-index:9999;
 }
 
+.close:hover{
+color:red;
+}
 /* input */
 .popup-box input{
 width:100%;
@@ -197,9 +200,6 @@ cursor:pointer;
 .popup-box button:hover{
 background:#43a047;
 }
-color:#333;
-
-z-index:2000;   /* QUAN TRỌNG */
 }
 .tacgia{
     margin-top:5px;
@@ -235,7 +235,9 @@ transition:0.25s;
 
 .menu a:hover{
 background:#ffd86b;
-}
+    color:#000;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    }
 body{
 font-family:'Segoe UI',sans-serif;
 background:var(--primary-bg);
@@ -243,9 +245,11 @@ margin:0;
 padding-top:80px;
 }
 .menu{
-display:flex;
-align-items:center;
-}
+list-style:none;
+        padding:0;
+        margin:0;
+    }
+
 .auth-buttons{
 display:flex;
 align-items:center;
@@ -257,6 +261,16 @@ background:var(--primary-bg);
 margin:0;
 padding-top:80px;
 }
+.user-profile{
+text-decoration:none;
+color:white;
+font-weight:bold;
+margin-right:10px;
+cursor:pointer;
+}
+.login-only{
+display:none;
+}
 </style>
 </head>
 
@@ -264,14 +278,15 @@ padding-top:80px;
 
 <header>
 
-     <div class="logo">
-    <img src="logonhom1.png" alt="Logo Website">  
+  <div class="logo">
+<a href="index.html">
+<img src="logonhom1.png">
+</a>
 </div>
 
-
 <nav class="menu">
-    <a href="index.html">Trang chủ</a>
-    <a href="tacpham.html">Tác phẩm</a>
+    <a href="index.html">🏠Trang chủ</a>
+    <a href="tacpham.html">📚Tác phẩm</a>
     
 </nav>
 <div class="auth-buttons">
@@ -340,16 +355,50 @@ padding-top:80px;
 </div>
 </div>
 
+<div class="tacpham-card login-only" onclick="openPopup('khi địa ngục trống rỗng')">
+<img src="tacpham7.webp" class="tacpham-img">
+
+<div class="tacpham-content">
+<h3>Khi địa ngục trống rỗng</h3>
+
+<p>
+Cuốn sách bao gồm 7 truyện ngắn kể về những chuyện ma quái trong dân gian
+</p>
 
 </div>
+</div>
+<div class="tacpham-card login-only" onclick="openPopup('Truyền thuyết thờ hổ')">
+<img src="tacpham8.jpg" class="tacpham-img">
 
+<div class="tacpham-content">
+<h3>Truyền thuyết thờ hổ</h3>
+
+<p>
+Hổ được tôn thờ và là hình tượng phổ biến đầy ấn tượng trong đời sống dân gian của người Việt với tục thờ hổ hay thờ thần hổ ở nhiều vùng miền.
+</p>
+
+</div>
+</div>
+<div class="tacpham-card login-only" onclick="openPopup('Kẻ ăn hồn')">
+<img src="tacpham9.jpg" class="tacpham-img">
+
+<div class="tacpham-content">
+<h3>Kẻ ăn hồn</h3>
+
+<p>
+Kẻ Ăn Hồn - tiểu thuyết của nhà văn Thảo Trang - là tác phẩm thứ hai trong vũ trụ Tết Ở Làng Địa Ngục do tác giả xây dựng, thuộc thể loại tâm linh kỳ bí</p>
+
+</div>
+</div>
+</div>
 
 <!-- POPUP -->
 
 <div class="popup" id="popup">
 
-<div class="close" onclick="closePopup()">✖</div>
 <div class="popup-box">
+
+<span class="close" onclick="closePopup()">✖</span>
 
 <h2 id="popup-title"></h2>
 
@@ -387,9 +436,16 @@ content=`gia đình Hoài chuyển đến ngôi làng, kể từ đó Hoài gặ
 
 Tuy nhiên, mình phải nói rằng, từ tình tiết ở phần một này nó diễn ra quá nhanh, đến mức các nhân vật (kể cả nhân vật chính) điều không có nội tâm hay là miêu tả gì khác ngoài xuề xòa, viết cho thật nhanh, như một tác giả non tay đến mức bạn chỉ muốn vứt truyện Ngôi Làng Cổ Mộ sang một bên và muốn đọc truyện khác cho nhanh.`;
 }
+if(title=="khi địa ngục trống rỗng"){
+content=`Xuyên suốt 7 tác phẩm là những hình ảnh quen thuộc với chúng ta như ngôi miếu thiêng, ông ba bị, thần chết, cây đa trấn yểm đầu làng,... Mỗi hình ảnh lại gợi nhớ về những câu chuyện ma truyền miệng mà ông bà, bố mẹ hay kể. Mình cũng khá bất ngờ khi chuyện ma dân gian lại được nhiều bạn trẻ khai thác và viết nên những tác phẩm mang tính nhân văn sâu sắc như vậy.`;
+}
+if(title=="Truyền thuyết thờ hổ"){
+content=`Người Việt Nam kính sợ hổ, gọi hổ bằng Ông Ba Mươi, ông cọp, ông hổ, ông khái, ngài, chúa tể sơn lâm, chúa sơn lâm, chúa tể rừng xanh, mãnh hổ rừng xanh, mãnh chúa sơn lâm, mãnh hổ, nhưng tùy địa phương, tùy sinh hoạt, quan hệ giữa người và hổ không đồng nhất ở các vùng miền. Trong tâm lý người dân Miền Bắc và Miền Nam, cách tiếp cận với con cọp, hay Thần Hổ, có phần khác nhau. Tuy rằng ở đâu cũng sợ cọp, kiêng dè nhưng dường như người dân Bắc Bộ kinh sợ cọp hơn người dân Đồng bằng sông Cửu Long. Phía Bắc, từ đồng bằng lên mạn ngược, có nơi sùng bái hùm thiêng, thờ phụng đến mê tín vào phương Nam, hình tượng sùng bái mê tín hổ mờ nhạt hơn phía Bắc, người dân Miền Nam cũng sợ cọp, nhưng chỉ là nỗi sợ hãi cụ thể, vật chất mà không sùng tín.`;
+}
 
-
-
+if(title=="Kẻ ăn hồn"){
+content=`Năm ấy, có những cái ch/ế/t bất đắc kỳ tử xảy ra, có âm mưu tầng tầng lớp lớp, có những cành cây trong rừng phủ trắng khăn tang, có mưa máu gió tanh dội xuống ngôi làng quanh năm sương phủ. Cũng năm ấy, có người nuốt nước mắt vào trong vì đau khổ, có kẻ muốn mưu hại cả làng, có cả bầy rối nước cười điên dại trong đêm. Giữa chốn rừng thiêng nước độc, giữa những nghiệt oán trùng trùng, ai là kẻ giữ được lương tâm?`;
+}
 document.getElementById("popup").style.display="flex";
 document.getElementById("popup-title").innerText=title;
 document.getElementById("popup-content").innerHTML = content;
@@ -493,7 +549,9 @@ if(user){
 
 document.querySelector(".auth-buttons").innerHTML=
 `
-<span style="font-weight:bold">👤 ${user}</span>
+<a href="trangcanhan.html" class="user-profile">
+<i class="fa-solid fa-user"></i> ${user}
+</a>
 <button onclick="logout()" class="btn-login">Đăng xuất</button>
 `;
 
@@ -506,8 +564,46 @@ localStorage.removeItem("loggedUser");
 location.reload();
 }
 
+window.onload = function(){
 showUser();
+}
+function checkLogin(){
 
+let user = localStorage.getItem("loggedUser");
+
+if(user){
+
+document.querySelector(".auth-buttons").innerHTML =
+`
+<a href="trangcanhan.html" class="user-profile">👤 ${user}</a>
+<button onclick="logout()" class="btn-login">Đăng xuất</button>
+`;
+
+}
+
+}
+
+window.onload = checkLogin;
+function moKhoaTacPham(){
+
+let user = localStorage.getItem("loggedUser");
+
+if(user){
+
+document.querySelectorAll(".login-only").forEach(function(item){
+item.style.display="block";
+});
+
+}
+
+}
+
+window.onload = function(){
+
+checkLogin();
+moKhoaTacPham();
+
+}
 </script>
 <div id="loginForm" class="popup">
 <div class="popup-box">
@@ -527,5 +623,6 @@ showUser();
 
 </div>
 </div>
+
 </body>
 </html>
