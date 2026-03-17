@@ -3,14 +3,14 @@
         <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nhóm 6</title>
+        <title>Trang chủ</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
         <style>
 
         :root {
             --primary-bg: #f0f4ff;
-            --  -bg: rgba(255, 255, 255, 0.8);
+            --card-bg: rgba(255,255,255,0.8);
             --accent-blue: #708ed6;
             --text-dark: #333;
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -24,27 +24,23 @@
         }
 
         /* ===== HEADER ===== */
-    header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+ header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
 
-    padding:15px 40px;
+position:fixed;
+top:0;
+left:0;
+right:0;
 
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
+background:#e6ecff;
+border-bottom:2px solid #cfd8ff;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 
-    background:#e6ecff; /* màu menu mới */
-
-    border-bottom:2px solid #cfd8ff; /* đường viền */
-
-    box-shadow:0 2px 10px rgba(0,0,0,0.05);
-
-    z-index:1000;
-    box-sizing:border-box;
-    }
+z-index:1000;
+}
     nav a{
     text-decoration:none;
     color:#333;
@@ -54,7 +50,11 @@
     border-radius:8px;
     transition:0.25s;
     }
-
+nav{
+display:flex;
+align-items:center;
+gap:10px;
+}
     /* Hover menu trên */
     nav a:hover{
     background:#ffd86b;
@@ -559,6 +559,13 @@ box-shadow:0 10px 30px rgba(255,215,0,0.4);
     transform:scale(1.02);
     transition:0.3s;
 }
+.user-profile{
+text-decoration:none;
+color:white;
+font-weight:bold;
+margin-right:10px;
+cursor:pointer;
+}
         </style>
 
         </head>
@@ -567,7 +574,9 @@ box-shadow:0 10px 30px rgba(255,215,0,0.4);
 
         <header>
            <div class="logo">
-        <img src="logonhom1.png" alt="Logo Website">  
+            <a href="index.html">
+<img src="logonhom1.png" alt="Logo Website">  
+</a>
     </div>
 
             <nav>
@@ -961,11 +970,13 @@ let savedPass = localStorage.getItem("password");
 
 if(username === savedUser && password === savedPass){
 
+localStorage.setItem("loggedUser", username);
+
 alert("Đăng nhập thành công!");
 
 document.querySelector(".auth-buttons").innerHTML =
 `
-<span>👤 ${username}</span>
+<a href="profile.html" class="user-profile">👤 ${username}</a>
 <button onclick="logout()" class="btn-login">Đăng xuất</button>
 `;
 
@@ -976,14 +987,27 @@ document.getElementById("loginForm").style.display="none";
 alert("Sai tên đăng nhập hoặc mật khẩu!");
 
 }
-
 }
 
 function logout(){
-localStorage.removeItem("username");
-localStorage.removeItem("password");
+localStorage.removeItem("loggedUser");
 location.reload();
 }
+function checkLogin(){
 
+let user = localStorage.getItem("loggedUser");
+
+if(user){
+
+document.querySelector(".auth-buttons").innerHTML =
+`
+<a href="trangcanhan.html" class="user-profile">👤 ${user}</a>
+<button onclick="logout()" class="btn-login">Đăng xuất</button>
+`;
+
+}
+
+}
+window.onload = checkLogin;
 </script>
 </body>
